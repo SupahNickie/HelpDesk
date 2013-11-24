@@ -25,6 +25,7 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
+    IssueMailer.new_issue_posted(@issue).deliver
 
     respond_to do |format|
       if @issue.save

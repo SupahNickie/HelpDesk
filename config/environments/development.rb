@@ -14,7 +14,21 @@ Helpdesk::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = {host: "localhost:3000"}
+
+  ActionMailer::Base.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+  :port           => '25',
+  :address        => ENV['POSTMARK_SMTP_SERVER'],
+  :user_name      => ENV['POSTMARK_API_KEY'],
+  :password       => ENV['POSTMARK_API_KEY'],
+  :domain         => 'rails-helpdesk.herokuapp.com',
+  :authentication => :plain,
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
