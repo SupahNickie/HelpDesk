@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Helpdesk::Application.config.secret_key_base = '7605102ba439e39cd4e750387e57c9706600fed433c06a29a54b7be57522d0427bb3c28d429cd01a54cabede2b7dc8eecc375e3e9c7b7ec3eba6fcb7c094063e'
+Helpdesk::Application.config.secret_key_base = ENV['RAILS_SECRET']

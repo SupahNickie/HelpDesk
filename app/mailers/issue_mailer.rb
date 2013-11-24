@@ -1,9 +1,9 @@
 class IssueMailer < ActionMailer::Base
-  default from: "webmaster@rails-helpdesk.herokuapp.com"
+  default from: ENV['SENDER_SIGNATURE']
 
   def new_issue_posted(issue)
     @issue = issue
 
-    mail to: "77055d86e722f19b1669f1ccc8e5ce26@inbound.postmarkapp.com", subject: "New Issue Posted"
+    mail to: ENV['EMAIL_ADDRESS'], subject: "New Issue Posted"
   end
 end

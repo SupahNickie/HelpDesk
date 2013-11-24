@@ -19,16 +19,21 @@ Helpdesk::Application.configure do
   # Specify what domain to use for mailer URLs
   config.action_mailer.default_url_options = {host: "localhost:3000"}
 
-  ActionMailer::Base.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :letter_opener
 
-  ActionMailer::Base.smtp_settings = {
-  :port           => '25',
-  :address        => ENV['POSTMARK_SMTP_SERVER'],
-  :user_name      => ENV['POSTMARK_API_KEY'],
-  :password       => ENV['POSTMARK_API_KEY'],
-  :domain         => 'rails-helpdesk.herokuapp.com',
-  :authentication => :plain,
-  }
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = { :api_key => ENV['POSTMARK_API_KEY'] }
+
+  # ActionMailer::Base.delivery_method = :smtp
+
+  # ActionMailer::Base.smtp_settings = {
+  # :port           => '25',
+  # :address        => ENV['POSTMARK_SMTP_SERVER'],
+  # :user_name      => ENV['POSTMARK_API_KEY'],
+  # :password       => ENV['POSTMARK_API_KEY'],
+  # :domain         => 'rails-helpdesk.herokuapp.com',
+  # :authentication => :plain,
+  # }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

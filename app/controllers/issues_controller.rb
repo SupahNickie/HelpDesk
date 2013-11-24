@@ -25,7 +25,6 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
-    IssueMailer.new_issue_posted(@issue).deliver
 
     respond_to do |format|
       if @issue.save
@@ -35,6 +34,7 @@ class IssuesController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
+    IssueMailer.new_issue_posted(@issue).deliver
     end
   end
 

@@ -1,9 +1,11 @@
 <h1>A new issue has been posted:</h1>
 
-<%= @issue.title %>
+<p><strong><%= @issue.title %></strong></p>
 
-<%= @issue.body %>
+<p><%= @issue.body %></p>
+<br>
 
-Reply to this email to resolve the issue.
+<p>Reply to this email to resolve the issue.</p>
+<br>
 
-<%= link_to 'Issue on the site', @issue %>
+<%= link_to 'Issue on the site', issue_path(@issue) %>
