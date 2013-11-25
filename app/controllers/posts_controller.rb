@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(:title => params["Subject"], :body => params["TextBody"])
+    @post.save
   end
 
 end
