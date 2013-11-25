@@ -9,9 +9,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  # def create
+  #   Post.create_from_postmark(Postmark::Mitt.new(request.body.read))
+  #   render :text => "Created a post!", :status => :created
+  # end
+
   def create
-    Post.create_from_postmark(Postmark::Mitt.new(request.body.read))
-    render :text => "Created a post!", :status => :created
+    @post = Post.new(:title => params["Subject"], :body => params["TextBody"])
   end
 
 end

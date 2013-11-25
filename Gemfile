@@ -6,7 +6,7 @@ gem 'rails', '4.0.0'
 gem 'figaro'
 gem 'ultrahook'
 gem 'postmark-rails', '~> 0.5.2'
-gem 'postmark-mitt'
+# gem 'postmark-mitt'
 
 gem 'pg'
 
