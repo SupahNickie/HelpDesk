@@ -2,7 +2,8 @@ Helpdesk::Application.routes.draw do
 
     get '/posts', to: 'posts#index'
     get '/posts/:id', to: 'posts#show'
-    resources :posts, :only => [:create]
+    # resources :posts, :only => [:create]
+    post '/', to: 'posts#create'
 
   resources :issues
 
