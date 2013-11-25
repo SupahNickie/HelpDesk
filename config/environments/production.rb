@@ -68,6 +68,9 @@ Helpdesk::Application.configure do
   config.action_mailer.delivery_method = :postmark
   config.action_mailer.postmark_settings = { :api_key => ENV['POSTMARK_API_KEY'] }
 
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = {host: "localhost:3000"}
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true
